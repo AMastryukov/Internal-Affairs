@@ -24,8 +24,17 @@ public class Player : MonoBehaviour
         get { return advisors; }
     }
 
+    private void Start()
+    {
+        loyaltyText.text = ((int)attributes[0]).ToString();
+        mightText.text = ((int)attributes[1]).ToString();
+        influenceText.text = ((int)attributes[2]).ToString();
+    }
+
     public void CalculateAttributes()
     {
+        Vector3 oldValues = new Vector3(attributes[0], attributes[1], attributes[2]);
+
         // go through all advisors and calculate new attributes
         for (int i = 0; i < advisors.Count; i++)
         {
@@ -34,13 +43,28 @@ public class Player : MonoBehaviour
             attributes[2] += advisors[i].Attributes[2];
         }
 
-        UpdateTexts();
+        UpdateTexts(oldValues);
     }
 
-    private void UpdateTexts()
+    private void UpdateTexts(Vector3 oldValues)
     {
-        loyaltyText.text = ((int)attributes[0]).ToString();
-        mightText.text = ((int)attributes[1]).ToString();
-        influenceText.text = ((int)attributes[2]).ToString();
+        StartCoroutine(AnimateAttribute(loyaltyText, oldValues[0], attributes[0]));
+        StartCoroutine(AnimateAttribute(mightText, oldValues[1], attributes[1]));
+        StartCoroutine(AnimateAttribute(influenceText, oldValues[2], attributes[2]));
+    }
+    
+    private IEnumerator AnimateAttribute(TextMeshProUGUI text, float oldValue, float newValue)
+    {
+        int currentValue = (int)oldValue;
+        int delta = (int)Mathf.Sign(newValue - oldValue);
+
+        // do a slot-machine like counter increase on the attribute
+        for (int i = 0; i < Mathf.Abs(newValue - oldValue); i++)
+        {
+            text.text = currentValue.ToString();
+            currentValue += delta;
+
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 }
