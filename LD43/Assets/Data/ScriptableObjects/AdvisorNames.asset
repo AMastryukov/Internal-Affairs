@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc3934ed419a1a449e1dec3fefb188b, type: 3}
+  m_Name: AdvisorNames
+  m_EditorClassIdentifier: 
+  names:
+  - Nikolai
+  - Mikhail
+  - Andrei
+  - Anton
+  - Dima
+  - Dimitri
+  - Ivan
+  - Vladimir
+  - Vladislav
+  - Miroslav
+  - Yaroslav
+  - Pyotr
+  - Stanislav
+  - Vasiliy
+  - Zila
+  - Boris
+  - Valentin
+  - Valeriy
+  - Viktor
+  - Vitaliy
+  - Vyacheslav
+  - Bogdan
+  - Semyon
+  - Artyom
+  - Artur
+  - Arkadiy
+  - Pavel
+  - Arseny
+  - Anatoliy
+  - Alexei
+  - Aleksandr
+  - Iosif
+  - Sasha
+  - Nikita
+  - Misha
+  - Svetlana
+  - Lev
+  - Natasha
+  - Anastasia
+  - Oleg
+  - Alla
+  - Lubov
+  - Grigoriy
+  - Lada
+  - Masha
+  - Kalina
+  - Gennadiy
+  - Lyuba
+  - Nadezhda
+  - Alyona
+  - Lena
+  - Anna
+  - Anya
+  - Zarya
+  - Arisha
+  - Kristina
+  - Evgeniy
+  - Evegnia
+  - Fyodr
+  - Gavril
+  - Irina
+  - Konstantin
+  - Ksenia
+  - Klara
+  - Lyudmila
+  - Maxim
+  - Matvei
+  - Nina
+  - Olga
+  - Polina
+  - Roman
+  - Zhenya
+  - Tamara
+  - Stepan
+  - Sonya
+  - Yuri
+  - Sofia
+  - Polina
+  - Yasemin
+  - Leonid
