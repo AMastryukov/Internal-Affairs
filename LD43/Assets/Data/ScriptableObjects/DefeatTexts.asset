@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: DefeatTexts
   m_EditorClassIdentifier: 
   loyalty:
-  - 'Your advisors conspired against you.
+  - 'Your advisors were not loyal and conspired against you.
 
 
     You were taken to a dank basement, executed and promptly replaced.'
