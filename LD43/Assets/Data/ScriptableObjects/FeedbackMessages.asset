@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4adb6205555e7dd408fb12900ae48c4e, type: 3}
+  m_Name: FeedbackMessages
+  m_EditorClassIdentifier: 
+  feedbackMessages:
+  - '{0} was sent to work the fields. Poor {0}...'
+  - '{0} was taken out back and shot.'
+  - '{0} disappeared, never to be heard from again.'
+  - '{0} was found dead in their apartment with 3 gunshots in the back of their head.
+    Authorities suspect suicide.'
+  - '{0} was sent to a sattelite country.'
+  - '{0} fought back, but it was futile...'
+  - '{0} was culled from the adivsor panel.'
+  - '{0} was unanimously voted off the panel. Unanimously.'
+  - '{0} was branded a traitor and summarily executed.'
+  - '{0} has succumbed to polonium tea.'
+  - '{0} has been [REDACTED].'
+  - '{0} was sent off on a camping trip. Permanently.'
+  - '{0} has been locked up somewhere up north.'
+  - '{0} was sent on an important mission and never came back.'
+  - '{0} has been eliminated.'
+  - '{0} hasn''t been seen in weeks.'
+  - '{0} was replaced with {1}.'
+  - '{1} took {0}''s position as advisor.'
+  - The internal affairs department has dealt with {0}.
+  - Welcome to the advisor panel, {1}! Enjoy your stay while it lasts.
+  - All traces of {0}'s existence were erased.
+  - '{0} was sent somewhere far, far away...'
+  - Let's see if {1} lasts as long as {0} did...
+  - '{0} was demoted to janitor. Our janitor, {1}, was promoted to advisor.'
+  - Congratulations, comrade {1}! Please try to serve your country harder than {0}.
+  - '{0} was given a one-way ticket headed west.'
+  - 'Citizen #73941, alias {0}, has been appointed as advisor.'
+  - '{0} was blamed for our government''s shortcomings and sent off to prison.'
+  - '{0} spoke out against the Leader for the first and final time...'
+  - '{0} was voluntarily sent to space.'
+  - The government sees all. The government knows all.
+  - '{0} has chosen, or has been chosen, to relocate to one of our finest remaining
+    urban centers.'
+  - Listeners always listen, watchers always watch, talkers always get prosecuted
+    to the fullest extent of the law.
+  - '{0} retired from their position as advisor to become a farmer.'
+  - 'Directive #14: discussions about salary is strictly forbidden.'
+  - 'Directive #73: all citizens are entitled to two (2) bread rations per week.'
+  - 'Directive #3: failing to report a crime is a crime.'
+  - 'Directive #8: loitering in public spaces is punishable by permanent off-world
+    relocation.'
+  - 'Directive #341: no games.'
+  - 'Directive #40: receiving three (3) citizen strikes will result in immediate detention.'

@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Advisor candidate;
 
+    [SerializeField] private FeedbackText feedbackText;
     [SerializeField] private TextMeshProUGUI turnText;
     [SerializeField] private Transform deltaPopups;
     [SerializeField] private GameObject attributeDeltaPrefab;
@@ -41,6 +42,9 @@ public class Game : MonoBehaviour
 
         if (state == GameState.ONGOING)
         {
+            // give a feedback message at random
+            feedbackText.RandomizeFeedbackText(culledAdvisor.AdvisorName, candidate.AdvisorName);
+
             // assign the candidate to the selected advisor
             culledAdvisor.AssignNewAdvisor(candidate);
             deltaVector = CalculateDeltaVector();
