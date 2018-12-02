@@ -10,6 +10,10 @@ public class DefeatScreen : MonoBehaviour
     [SerializeField] private DefeatTexts defeatTexts;
     [SerializeField] private TextMeshProUGUI defeatText;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip paperSlide;
+    [SerializeField] private AudioClip loss;
+
     public void ShowDefeatScreen(int defeatAttribute, int defeatType)
     {
         // set the defeat text
@@ -30,5 +34,10 @@ public class DefeatScreen : MonoBehaviour
 
         // move the defeat screen down
         transform.DOMove(Vector3.zero, 2f).SetEase(Ease.OutQuart);
+
+        // stop the music and play the paper and loss sounds
+        audioSource.Stop();
+        audioSource.PlayOneShot(paperSlide);
+        audioSource.PlayOneShot(loss);
     }
 }
