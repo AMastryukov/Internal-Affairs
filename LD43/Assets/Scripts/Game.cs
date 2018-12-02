@@ -10,12 +10,25 @@ public class Game : MonoBehaviour
     [SerializeField] private GameState state = GameState.ONGOING;
     [SerializeField] private int turn = 0;
 
+    [SerializeField] private int minDefeatThreshold = 0;
+    [SerializeField] private int maxDefeatThreshold = 30;
+
     [SerializeField] private Player player;
     [SerializeField] private Advisor candidate;
 
     [SerializeField] private TextMeshProUGUI turnText;
     [SerializeField] private Transform deltaPopups;
     [SerializeField] private GameObject attributeDeltaPrefab;
+
+    public int MinDefeatThreshold
+    {
+        get { return minDefeatThreshold; }
+    }
+
+    public int MaxDefeatThreshold
+    {
+        get { return maxDefeatThreshold; }
+    }
 
     private void Start()
     {
@@ -24,15 +37,18 @@ public class Game : MonoBehaviour
 
     public void ProcessTurn(Advisor culledAdvisor)
     {
+        Vector3 deltaVector;
+
         if (state == GameState.ONGOING)
         {
             // assign the candidate to the selected advisor
             culledAdvisor.AssignNewAdvisor(candidate);
-            candidate.GenerateNewAdvisor(CalculateDeltaVector());
+            deltaVector = CalculateDeltaVector();
+            candidate.GenerateNewAdvisor(deltaVector);
 
             // spawn attribute delta prefab
             GameObject attributeDelta = Instantiate(attributeDeltaPrefab, deltaPopups.position, Quaternion.identity, deltaPopups);
-            attributeDelta.GetComponent<AttributeDelta>().AssignAttributes(CalculateDeltaVector());
+            attributeDelta.GetComponent<AttributeDelta>().AssignAttributes(deltaVector);
 
             // calculate attributes
             player.CalculateAttributes();
@@ -64,14 +80,13 @@ public class Game : MonoBehaviour
 
     private void CheckGameState()
     {
-        // check if any of the player's attributes are 0
+        // check if any of the player's attributes are too low or too high
         for (int i = 0; i < 3; i++)
         {
-            if (player.Attributes[i] <= 0)
+            if (player.Attributes[i] <= minDefeatThreshold || 
+                player.Attributes[i] >= maxDefeatThreshold)
             {
                 state = GameState.DEFEAT;
-
-                Debug.Log("DEFEATED");
             }
         }
     }

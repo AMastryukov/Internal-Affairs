@@ -6,6 +6,7 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Game game;
     [SerializeField] private Vector3 attributes;
     [SerializeField] private List<Advisor> advisors;
 
@@ -13,6 +14,9 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI loyaltyText;
     [SerializeField] private TextMeshProUGUI mightText;
     [SerializeField] private TextMeshProUGUI influenceText;
+
+    private Color defaultColor;
+    [SerializeField] private Color losingColor;
 
     public Vector3 Attributes
     {
@@ -29,6 +33,8 @@ public class Player : MonoBehaviour
         loyaltyText.text = ((int)attributes[0]).ToString();
         mightText.text = ((int)attributes[1]).ToString();
         influenceText.text = ((int)attributes[2]).ToString();
+
+        defaultColor = loyaltyText.color;
     }
 
     public void CalculateAttributes()
@@ -38,9 +44,7 @@ public class Player : MonoBehaviour
         // go through all advisors and calculate new attributes
         for (int i = 0; i < advisors.Count; i++)
         {
-            attributes[0] += advisors[i].Attributes[0];
-            attributes[1] += advisors[i].Attributes[1];
-            attributes[2] += advisors[i].Attributes[2];
+            attributes += advisors[i].Attributes;
         }
 
         UpdateTexts(oldValues);
@@ -59,10 +63,21 @@ public class Player : MonoBehaviour
         int delta = (int)Mathf.Sign(newValue - oldValue);
 
         // do a slot-machine like counter increase on the attribute
-        for (int i = 0; i < Mathf.Abs(newValue - oldValue); i++)
+        for (int i = 0; i < (int)Mathf.Abs(newValue - oldValue); i++)
         {
-            text.text = currentValue.ToString();
             currentValue += delta;
+            text.text = currentValue.ToString();
+
+            // color numbers if they are too close to thresholds
+            if (game.MaxDefeatThreshold - currentValue <= 5 ||
+                currentValue - game.MinDefeatThreshold <= 5)
+            {
+                text.color = losingColor;
+            }
+            else
+            {
+                text.color = defaultColor;
+            }
 
             yield return new WaitForSeconds(0.25f);
         }

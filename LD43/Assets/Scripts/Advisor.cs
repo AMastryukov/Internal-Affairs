@@ -60,7 +60,7 @@ public class Advisor : MonoBehaviour
             }
             else
             {
-                newAttributes[i] = Mathf.Clamp(Random.Range((int)-(deltaVector[i]), 2), -2, 3);
+                newAttributes[i] = Mathf.Clamp(Random.Range((int)-(deltaVector[i]), 1), -2, 3);
 
                 // ensure the number is not 0
                 if (newAttributes[i] == 0)
