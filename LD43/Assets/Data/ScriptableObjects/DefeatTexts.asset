@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e90e234a620773478d1d6330938cdef, type: 3}
+  m_Name: DefeatTexts
+  m_EditorClassIdentifier: 
+  loyalty:
+  - 'Your advisors conspired against you.
+
+
+    You were taken to a dank basement, executed and promptly replaced.'
+  - "The overwhelming praise and loyalty of your followers went to your head.\r\n\nBelieving
+    you were a God, you refused to eat and starved to death."
+  might:
+  - "Your ruling iron first turned limp, leaving your defences weak.\r\n\nCounter-revolutionaries
+    stormed the government building and killed you."
+  - "Your tight grip on freedom left your citizens with nothing to lose.\r\n\nThe
+    People banded together and overwhelmed your military power, killing you in the
+    process."
+  influence:
+  - "Your lack of influence caused you to lose support.\r\n\nSlowly, your government
+    dissolved and you were locked up for your crimes."
+  - "Your influence sent a massive shockwave of fear to the outside world.\r\n\nNumerous
+    foreign powers united against you, plunging your country into a 2-year war which
+    would end in your demise."

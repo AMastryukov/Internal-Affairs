@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Game : MonoBehaviour
     [SerializeField] private TextMeshProUGUI turnText;
     [SerializeField] private Transform deltaPopups;
     [SerializeField] private GameObject attributeDeltaPrefab;
+    [SerializeField] private DefeatScreen defeatScreen;
 
     public int MinDefeatThreshold
     {
@@ -34,6 +36,11 @@ public class Game : MonoBehaviour
     private void Start()
     {
         UpdateTurnText();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Game");
     }
 
     public void ProcessTurn(Advisor culledAdvisor)
@@ -66,7 +73,7 @@ public class Game : MonoBehaviour
 
     private void UpdateTurnText()
     {
-        turnText.text = "Turn: " + turn.ToString();
+        turnText.text = "Day: " + turn.ToString();
     }
 
     private Vector3 CalculateDeltaVector()
@@ -87,10 +94,15 @@ public class Game : MonoBehaviour
         // check if any of the player's attributes are too low or too high
         for (int i = 0; i < 3; i++)
         {
-            if (player.Attributes[i] <= minDefeatThreshold || 
-                player.Attributes[i] >= maxDefeatThreshold)
+            if (player.Attributes[i] <= minDefeatThreshold)
             {
                 state = GameState.DEFEAT;
+                defeatScreen.ShowDefeatScreen(i, 0);
+            }
+            else if (player.Attributes[i] >= maxDefeatThreshold)
+            {
+                state = GameState.DEFEAT;
+                defeatScreen.ShowDefeatScreen(i, 1);
             }
         }
     }
